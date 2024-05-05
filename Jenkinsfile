@@ -19,13 +19,15 @@ pipeline {
 
     stages {
         stage('Clone nxBase') {
-            echo 'Clone nxBase repository'
-            git branch: 'main', poll: false, url: 'https://github.com/Akash-Macha/base-jenkins-project.git'
+            steps {
+                echo 'Clone nxBase repository'
+                git branch: 'main', poll: false, url: 'https://github.com/Akash-Macha/base-jenkins-project.git'
+            }
         }
         stage('Build nxBase') {
             steps {
                 echo 'In Build nxBase Step'
-                
+
                 pwd()
                 echo "Building version ${params.RELEASE_VERSION}"
                 
