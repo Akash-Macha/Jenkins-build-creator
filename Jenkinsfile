@@ -41,10 +41,7 @@ pipeline {
                 script {
                     // we can now use the functionality using gv variable
                     gv = load "script.groovy"
-                }
-            }
-            steps {
-                script {
+
                     gv.buildApp()
                     gv.testApp()
                     gv.deployApp()
