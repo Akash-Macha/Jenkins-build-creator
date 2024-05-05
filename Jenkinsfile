@@ -14,18 +14,20 @@ pipeline {
         string(name: "SNAPSHOT_VERSION", defaultValue: '3.2.0-M02-SNAPSHOT', description: 'Snapshot version for the build.')
         choice(name: 'START_THE_BUILD_FROM', choices: ['nxBase', 'nxWidgets', 'nxNjsa'], description: 'Use this feature to start the build from certain project. Usually used when build fails in between.')
         // Can use to skip a few steps in the build! - booean
-        booleanParam(name: 'executeTests', defaultValue: false, description: '')
+        // booleanParam(name: 'executeTests', defaultValue: false, description: '')
     }
 
     stages {
+        stage('Clone nxBase') {
+            echo 'Clone nxBase repository'
+            git branch: 'main', poll: false, url: 'https://github.com/Akash-Macha/base-jenkins-project.git'
+        }
         stage('Build nxBase') {
             steps {
+                echo 'In Build nxBase Step'
+                
                 pwd()
                 echo "Building version ${params.RELEASE_VERSION}"
-                echo 'Clone nxBase repository'
-                // sh 'git clone https://github.com/Akash-Macha/base-jenkins-project.git'
-                
-                // sh "echo 'echo from sh'"
                 
                 echo 'Run grunt command'
                 
