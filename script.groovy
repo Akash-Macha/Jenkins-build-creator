@@ -10,7 +10,7 @@ def testApp() {
   echo "Testing App from script.groovy file"
 }
 
-def deplyApp() {
+def deployApp() {
   echo "Deploying App from script.groovy file"
 }
 
