@@ -1,3 +1,5 @@
+
+
 pipeline {
     agent any
     // environment {
@@ -31,6 +33,22 @@ pipeline {
                 
                 echo 'Wait for the nxBase build to get succeed'
 
+            }
+        }
+        stage('Load external groovy script') {
+            steps {
+                echo "Loading external groovy script"
+                script {
+                    // we can now use the functionality using gv variable
+                    gv = load "script.groovy"
+                }
+            }
+            steps {
+                script {
+                    gv.buildApp()
+                    gv.testApp()
+                    gv.deployApp()
+                }
             }
         }
     }
