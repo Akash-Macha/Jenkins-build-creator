@@ -28,6 +28,7 @@ pipeline {
         }
         stage('Run Grunt command') {
             steps {
+                bat 'cd BaseJenkinsProject'
                 bat 'npm i'
                 bat 'grunt nx-process --set-version=1.1.0'
             }
