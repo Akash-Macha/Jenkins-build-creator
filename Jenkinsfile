@@ -26,20 +26,10 @@ pipeline {
                 }
             }
         }
-        // stage('Clone nxBase') {
-        //     steps {
-        //         script {
-        //             sh 'mkdir -p BaseJenkinsProject'
-        //             sh 'cd BaseJenkinsProject'
-                    
-        //             // The below will clone your repo and will be checked out to master branch by default.
-        //             git branch: 'main', url: 'https://github.com/Akash-Macha/base-jenkins-project.git'
-        //             // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
-        //             sh 'ls -lart ./*'
-        //             // List all branches in your repo.
-        //             sh 'git branch -a'
-        //         }
-        //     }
-        // }
+        stage('Run Grunt command') {
+            steps {
+                sh 'grunt nx-process --set-version=1.3.0'
+            }
+        }
     }
 }
