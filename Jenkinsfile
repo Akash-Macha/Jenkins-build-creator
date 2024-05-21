@@ -16,8 +16,6 @@ pipeline {
                 cleanWs()
             }
         }
-    stages {
-        // https://kubedemy.io/jenkins-tutorial-part-10-work-with-git-in-pipeline
         stage("Clone Git Repository") {
             steps {
                 dir("BaseJenkinsProject") {
@@ -28,8 +26,6 @@ pipeline {
                 }
             }
         }
-    }
-
         // stage('Clone nxBase') {
         //     steps {
         //         script {
