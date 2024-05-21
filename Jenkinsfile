@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run Grunt command') {
             steps {
-                sh 'grunt nx-process --set-version=1.3.0'
+                bat 'grunt nx-process --set-version=1.1.0'
             }
         }
     }
