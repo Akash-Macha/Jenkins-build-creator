@@ -10,11 +10,12 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            cleanWs()
-        }
-
         stage('Build nxBase') {
+            steps {
+                echo 'Clean Workspace'
+                cleanWs()
+            }
+
             steps {
                 script {
                     sh 'mkdir -p BaseJenkinsProject'
